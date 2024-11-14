@@ -24,6 +24,9 @@ table 51701 EnTeteLitige
         // Add changes to field groups here
     }
 
+
+
+
     var
         myInt: Integer;
 
