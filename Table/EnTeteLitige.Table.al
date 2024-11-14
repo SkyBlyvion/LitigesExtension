@@ -85,14 +85,16 @@ table 51701 EnTeteLitige
             Editable = true;
             Description = 'EN_TETE_LITIGE LN REV24 14/11/24';
         }
+#pragma warning disable AA0232
         field(10; "Montant litige"; Decimal)
+#pragma warning restore
         {
             Caption = 'Montant litige';
             Tooltip = 'Montant du litige en cours.';
             Editable = true;
             Description = 'EN_TETE_LITIGE LN REV24 14/11/24';
             FieldClass = FlowField;
-            CalcFormula = Sum("LigneLitige".Montant WHERE("No. document" = FIELD("No. document")))
+            CalcFormula = Sum("LigneLitige".Montant WHERE("No. document" = FIELD("No. document")));
         }
         field(11; "Ratio litige-factures"; Decimal)
         {
@@ -336,13 +338,7 @@ table 51701 EnTeteLitige
         }
     }
 
-    fieldgroups
-    {
-        // Add changes to field groups here
-    }
-
     var
-
         LigLitige: Record "LigneLitige";
         GestionNoSouche: Codeunit "No. Series"; // anciennement NoSeriesManagement
 
@@ -355,7 +351,9 @@ table 51701 EnTeteLitige
             ELSE
                 "No. document" := GestionNoSouche.GetNextNo('V-LIT', "Date document", true);
         "Date document" := WORKDATE();
+#pragma warning disable AA0139
         Utilisateur := USERID();
+#pragma warning restore
     end;
 
     /*OldTriggerOnInsert()
@@ -374,12 +372,10 @@ table 51701 EnTeteLitige
 
     trigger OnDelete()
     begin
-
-        LigLitige.RESET;
+        LigLitige.RESET();
         LigLitige.SETRANGE("No. document", "No. document");
         IF LigLitige.FIND('-') THEN
-            LigLitige.DELETEALL;
-
+            LigLitige.DELETEALL();
     end;
 
     trigger OnRename()
