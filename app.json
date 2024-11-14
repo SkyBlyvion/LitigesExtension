@@ -10,7 +10,14 @@
   "help": "",
   "url": "",
   "logo": "",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "id": "cfdb0bf0-5511-40ec-80cf-6f7f8f71eca4",
+      "name": "Sales Extension",
+      "publisher": "Lopez Nicolas - REVIMPORT",
+      "version": "1.0.1.7"
+    }
+  ],
   "screenshots": [],
   "platform": "1.0.0.0",
   "application": "24.0.0.0",
