@@ -13,7 +13,7 @@ table 51701 EnTeteLitige
             DataClassification = CustomerContent;
             Caption = 'No. document';
             Tooltip = 'Numéro unique du document.';
-            Editable = false;
+            Editable = true;
             Description = 'EN_TETE_LITIGE LN REV24 14/11/24';
         }
         field(2; "Type litige"; Option)
@@ -32,6 +32,7 @@ table 51701 EnTeteLitige
             Tooltip = 'Numéro du client associé.';
             Editable = true;
             Description = 'EN_TETE_LITIGE LN REV24 14/11/24';
+            TableRelation = Customer;
         }
         field(4; "No. lieu de livraison"; Code[10])
         {
@@ -40,6 +41,7 @@ table 51701 EnTeteLitige
             Tooltip = 'Numéro du lieu de livraison.';
             Editable = true;
             Description = 'EN_TETE_LITIGE LN REV24 14/11/24';
+            TableRelation = "Ship-to Address".Code WHERE("Customer No." = FIELD("No. client"));
         }
         field(5; "Date document"; Date)
         {
@@ -54,7 +56,7 @@ table 51701 EnTeteLitige
             DataClassification = SystemMetadata;
             Caption = 'Utilisateur';
             Tooltip = 'Utilisateur ayant créé ou modifié le document.';
-            Editable = false;
+            Editable = true;
             Description = 'EN_TETE_LITIGE LN REV24 14/11/24';
         }
         field(7; "No. avoir 1"; Code[20])
@@ -64,6 +66,7 @@ table 51701 EnTeteLitige
             Tooltip = 'Numéro du premier avoir associé.';
             Editable = true;
             Description = 'EN_TETE_LITIGE LN REV24 14/11/24';
+            TableRelation = "Sales Cr.Memo Header"."No." WHERE("Sell-to Customer No." = FIELD("No. client"));
         }
         field(8; "Code transporteur"; Code[10])
         {
@@ -72,6 +75,7 @@ table 51701 EnTeteLitige
             Tooltip = 'Code du transporteur responsable.';
             Editable = true;
             Description = 'EN_TETE_LITIGE LN REV24 14/11/24';
+            TableRelation = "Shipping Agent".Code;
         }
         field(9; "No. bordereau livraison"; Text[20])
         {
@@ -83,11 +87,12 @@ table 51701 EnTeteLitige
         }
         field(10; "Montant litige"; Decimal)
         {
-            DataClassification = AccountData;
             Caption = 'Montant litige';
             Tooltip = 'Montant du litige en cours.';
             Editable = true;
             Description = 'EN_TETE_LITIGE LN REV24 14/11/24';
+            FieldClass = FlowField;
+            CalcFormula = Sum("LigneLitige".Montant WHERE("No. document" = FIELD("No. document")))
         }
         field(11; "Ratio litige-factures"; Decimal)
         {
@@ -184,6 +189,7 @@ table 51701 EnTeteLitige
             Tooltip = 'Code du vendeur associé au litige.';
             Editable = true;
             Description = 'EN_TETE_LITIGE LN REV24 14/11/24';
+            TableRelation = "Salesperson/Purchaser".Code;
         }
         field(23; "Souche de No."; Code[10])
         {
@@ -304,6 +310,7 @@ table 51701 EnTeteLitige
             Tooltip = 'Numéro du deuxième avoir associé.';
             Editable = true;
             Description = 'EN_TETE_LITIGE LN REV24 14/11/24';
+            TableRelation = "Sales Cr.Memo Header"."No." WHERE("Sell-to Customer No." = FIELD("No. client"));
         }
         field(38; "No. avoir 3"; Code[20])
         {
@@ -312,6 +319,7 @@ table 51701 EnTeteLitige
             Tooltip = 'Numéro du troisième avoir associé.';
             Editable = true;
             Description = 'EN_TETE_LITIGE LN REV24 14/11/24';
+            TableRelation = "Sales Cr.Memo Header"."No." WHERE("Sell-to Customer No." = FIELD("No. client"));
         }
     }
 
@@ -352,8 +360,8 @@ table 51701 EnTeteLitige
 
     /*OldTriggerOnInsert()
         OnInsert()
-        IF "N° document" = '' THEN
-        GestionNoSouche.InitSeries('V-LIT','',"Date document","N° document","Souche de N°");
+        IF "NNo. document" = '' THEN
+        GestionNoSouche.InitSeries('V-LIT','',"Date document","NNo. document","Souche de NNo.");
 
         "Date document" := WORKDATE;
         Utilisateur := USERID;
