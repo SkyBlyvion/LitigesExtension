@@ -1,0 +1,32 @@
+{
+  "id": "2ef12adc-7290-45b8-9415-ac56b428fdc9",
+  "name": "Litiges Extension",
+  "publisher": "Lopez Nicolas - REVIMPORT",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "En-tête litige, Ligne litige, Litige vente, Sous-form litige vente, Statistiques litige, Liste des litiges",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "24.0.0.0",
+  "idRanges": [
+    {
+      "from": 51700,
+      "to": 51850
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "13.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
