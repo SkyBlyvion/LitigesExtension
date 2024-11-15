@@ -6,7 +6,7 @@ page 51705 "LigneLitigeSubForm"
     SourceTable = LigneLitige;
 
 
-    /*Documentation()
+    /* Documentation()
         //LITIGE_VENTE PC 21/10/99 NSC1.12 : Gestion des droits de modifications des dates en fonction des quantités réservées
 
         //RESERVATION PC 15/02/00 NSC2.14 :Mise en place de la fonction de réservation lorsque l'on valide la quantité/conditionnement

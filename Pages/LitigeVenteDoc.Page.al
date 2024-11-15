@@ -6,6 +6,10 @@ page 51704 "LitigeVenteDoc"
     SourceTable = "EnTeteLitige";
     Caption = 'Litige vente';
 
+    // Documentation () 
+    // AVOIR 27/01/12 CC REV4.14 : ajout N° Avoir 2 & 3
+    // NL REV24 15/11/24 : creation de la page LitigeVenteDoc
+
     layout
     {
         area(Content)
@@ -38,10 +42,12 @@ page 51704 "LitigeVenteDoc"
                     begin
 
                         IF Clt.GET(Rec."No. client") THEN BEGIN
+#pragma warning disable AA0139
                             varNomClt := Clt.Name;
                             varCPClt := Clt."Post Code";
                             varVilleClt := Clt.City;
                             Rec."Code vendeur" := Clt."Salesperson Code";
+#pragma warning restore AA0139
                         END;
 
                     end;
@@ -426,7 +432,7 @@ page 51704 "LitigeVenteDoc"
 #pragma warning restore AL0603
                             LigLitige."No. article" := LigAvoir."No.";
                             LigLitige."Quantité litige" := LigAvoir.Quantity;
-                            LigLitige."PU remisé litige" := LigAvoir."Prix Unitaire Remisé (Pièce)"; //TODO: Creér Sales Cr.Memo Line
+                            LigLitige."PU remisé litige" := LigAvoir."Prix Unitaire Remisé (Pièce)";
 #pragma warning disable AA0139
                             LigLitige.Désignation := LigAvoir.Description; // Assigned Text to a smaller size
 #pragma warning restore AA0139
