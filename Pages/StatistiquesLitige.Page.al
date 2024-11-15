@@ -6,6 +6,9 @@ page 51708 "StatistiquesLitige"
     SourceTable = EnTeteLitige;
     Editable = false;
 
+    // Documentation()
+    // Page pour afficher les Statistiques Litige
+
     layout
     {
         area(Content)
