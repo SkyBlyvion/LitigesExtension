@@ -2,7 +2,7 @@
   "id": "2ef12adc-7290-45b8-9415-ac56b428fdc9",
   "name": "Litiges Extension",
   "publisher": "Lopez Nicolas - REVIMPORT",
-  "version": "1.0.0.1",
+  "version": "1.0.0.5",
   "brief": "",
   "description": "En-tête litige, Ligne litige, Litige vente, Sous-form litige vente, Statistiques litige, Liste des litiges",
   "privacyStatement": "",
@@ -15,7 +15,7 @@
       "id": "cfdb0bf0-5511-40ec-80cf-6f7f8f71eca4",
       "name": "Sales Extension",
       "publisher": "Lopez Nicolas - REVIMPORT",
-      "version": "1.0.1.7"
+      "version": "1.0.1.8"
     }
   ],
   "screenshots": [],

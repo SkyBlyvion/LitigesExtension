@@ -2,6 +2,12 @@
     - table 51701 EnTeteLitige
     - permissionset 51702 "LitigesPerms"
     - table 51703 LigneLitige
+    - page 51704 "LitigeVenteDoc"
+    - page 51705 "LigneLitigeSubForm"
+    - page 51706 "LitigesVenteListe"
+    - pageextension 51707 "Extend BusMngrRoleCntr2VLit" extends "Business Manager Role Center"
+    - page 51708 "Statistiques Litiges"
+
 
 ### Tables à réaliser :
 

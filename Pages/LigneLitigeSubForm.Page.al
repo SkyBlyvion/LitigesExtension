@@ -100,9 +100,11 @@ page 51705 "LigneLitigeSubForm"
 
     var
         EnteteLitige: Record "Entetelitige";
+#pragma warning disable AA0137
         EntFactVte: Record "Sales Invoice Header";
         LigLitige: Record "Lignelitige";
         EntLitige: Record "Entetelitige";
+#pragma warning restore
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin

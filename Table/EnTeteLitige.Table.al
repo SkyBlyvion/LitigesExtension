@@ -51,7 +51,7 @@ table 51701 EnTeteLitige
             Editable = true;
             Description = 'EN_TETE_LITIGE LN REV24 14/11/24';
         }
-        field(6; "Utilisateur"; Text[5])
+        field(6; "Utilisateur"; Text[250])
         {
             DataClassification = SystemMetadata;
             Caption = 'Utilisateur';
@@ -353,7 +353,7 @@ table 51701 EnTeteLitige
         "Date document" := WORKDATE();
 #pragma warning disable AA0139
         Utilisateur := USERID();
-#pragma warning restore
+#pragma warning restore AA0139
     end;
 
     /*OldTriggerOnInsert()
