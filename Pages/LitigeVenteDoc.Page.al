@@ -26,7 +26,6 @@ page 51704 "LitigeVenteDoc"
                         Caption = '';
                         ShowCaption = false;
 
-<<<<<<< HEAD
                         group(DocumentInformation)
                         {
                             Caption = 'Informations Document';
@@ -59,16 +58,6 @@ page 51704 "LitigeVenteDoc"
                                 Description = 'EN_TETE_LITIGE LN REV24 15/11/24';
                             }
                         }
-=======
-                        IF Clt.GET(Rec."No. client") THEN BEGIN
-#pragma warning disable AA0139
-                            varNomClt := Clt.Name;
-                            varCPClt := Clt."Post Code";
-                            varVilleClt := Clt.City;
-                            Rec."Code vendeur" := Clt."Salesperson Code";
-#pragma warning restore AA0139
-                        END;
->>>>>>> f14d30fedeaf27aef6f08cecc8d32ec249ed1fe4
 
                         group(ClientInformation)
                         {
